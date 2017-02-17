@@ -45,4 +45,7 @@ update don_users_collect set `type` = '1',
     elder_id = (select elder_id from don_project where don_users_collect.project_id = don_project.id);
 
 
-
+8. ¼¶ÁªÉ¾³ý
+	delete cp from colum_projec cp
+	left join projec p on cp.project_id = p.id
+	where cp.column_id = '3954e30538464ec69f55350d38ea20a0' and p.status = '4';
