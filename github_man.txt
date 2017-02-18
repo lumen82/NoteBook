@@ -1,0 +1,7 @@
+1. 提交代码
+	-- 添加到本地库
+	git add fileName
+	git commit -m 'commit content'
+	-- 提交到远程库
+	git push
+
