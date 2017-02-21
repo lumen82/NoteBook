@@ -21,10 +21,10 @@ SHOW VARIABLES LIKE 'event_scheduler';
 
 5. 创建定时任务 每天02点执行
 -- 若已存在则删除
-drop event ifexists`call_report_yesterday`;
+drop event if exists `call_report_yesterday`;
 
 -- 创建
-CREATE EVENT ifnotexists`call_report_yesterday`
+CREATE EVENT if not exists `call_report_yesterday`
 ON SCHEDULE EVERY 1 DAY
 STARTS date_add(curdate(), interval 26 hour) -- 第二天02点开始
 ON COMPLETION NOT PRESERVE
