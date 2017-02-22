@@ -2,3 +2,32 @@ python 学习笔记
 1. 爬虫 翻页 参考项目
 	https://github.com/whuhacker/Sitedossier-Crawler
 
+2. 实时用户统计
+	# -*- coding: utf-8 -*-
+	import time
+	from redis import Redis
+	from datetime import datetime
+	ONLINE_LAST_MINUTES = 5
+	redis = Redis(host='', port=, db=, password='')
+	def mark_online(user_id):   # 讲一个用户标记为 online
+	    now = int(time.time())  # 当前的uinx 时间戳
+	    expires = now + (ONLINE_LAST_MINUTES * 60) + 10     # 过期 unix 时间戳
+	    all_users_key = 'online-users/%d' % (now // 60)     # 集合名 包含分钟信息
+	    user_key = 'user_activity/%s' % user_id
+	    p = redis.pipeline();
+	    p.sadd(all_users_key, user_id)      # 将用户id 插入到包含分钟信息的集合中
+	    p.set(user_key, now)                # 记录用户标记时间
+	    p.expireat(all_users_key, expires)  # 设定集合过期时间为Unix 时间戳
+	    p.expireat(user_key, expires)
+	    p.execute()
+
+	def get_user_last_activity(user_id):        # 获取用户最后活跃时间
+	    last_active = redis.get('user_activity/%s' % user_id)
+	    if last_active is None:
+		return None
+	    return datetime.utcfromtimestamp(int(last_active))
+
+	def get_online_users():
+	    current = int(time.time()) // 60
+	    minutes = xrange(ONLINE_LAST_MINUTES)
+	    return redis.sunion(['online-users/%d' % (current - x) for x in minutes])
