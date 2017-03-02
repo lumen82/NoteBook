@@ -18,6 +18,8 @@
 
 4. 检查是否开启计划任务
 SHOW VARIABLES LIKE 'event_scheduler';
+-- 开启计划任务
+SET GLOBAL event_scheduler = ON;
 
 5. 创建定时任务 每天02点执行
 -- 若已存在则删除
