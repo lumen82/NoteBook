@@ -1,16 +1,16 @@
-* 1.���ײ���
+* 1.行首插入   
   C-x r t
-* 2.�����滻
+* 2.查找替换
   M-x replace-string RET oldString RET newString
-* 3.�滻ѡ������ո�ΪTab
+* 3.替换选中区域空格为Tab
   M-x tabify
-  �滻 Tab Ϊ �ո�
+  替换 Tab 为 空格
   M-x untabify
-* 4.����
-  C-x u �����
-  C-g C-x u ��ǰ����
-* 5.���з�
-  ֻҪ��Ҫ���뻻�з��ĵط�������C-q C-j�����룬������Ҫ�滻�ģ����Ǳ��滻���ַ�����
-* 6. org ģʽ ���۵� C-u C-u TAB
-* 7.ɾ���հ���
+* 4.撤消
+  C-x u 向后撤消
+  C-g C-x u 向前撤消
+* 5.换行符
+  只要需要输入换行符的地方，都用C-q C-j来输入，不管是要替换的，还是被替换的>    字符串。
+* 6. org 模式 打开折叠 C-u C-u TAB
+* 7.删除空白行
   M-x flush-lines  RET  ^$
