@@ -1,0 +1,76 @@
+;;关闭欢迎界面  
+(setq inhibit-startup-message t)
+
+(global-set-key [f11] 'my-fullscreen)
+
+;全屏
+(defun my-fullscreen ()
+  (interactive)
+  (x-send-client-message
+   nil 0 nil "_NET_WM_STATE" 32
+   '(2 "_NET_WM_STATE_FULLSCREEN" 0))
+)
+
+;该函数用于最大化,状态值为1说明最大化后不会被还原
+;因为这里有两次最大化 (分别是水平和垂直)
+(defun my-maximized ()
+  (interactive)
+  (x-send-client-message
+   nil 0 nil "_NET_WM_STATE" 32
+   '(1 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+  (interactive)
+  (x-send-client-message
+   nil 0 nil "_NET_WM_STATE" 32
+   '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
+(my-maximized) 
+
+;启动时最大化
+(my-maximized)
+
+;;显示行列号,它显示在minibuffer上面那个杠上
+(setq column-number-mode t)
+(setq line-number-mode t)
+
+;;取消滚动栏
+(set-scroll-bar-mode nil)
+
+;;取消工具栏
+(tool-bar-mode nil)
+
+;; 禁用菜单栏，F10 开启关闭菜单
+(menu-bar-mode nil)
+
+
+;;设置字体颜色为黑色，默认为黑色
+(set-foreground-color "grey")
+;;设置背景为黑色，默认为白色，你也可以自由设置其它颜色
+(set-background-color "black")
+;;设置光标的颜色为金黄，默认为黑色
+(set-cursor-color "gold1")
+;;设置鼠标的颜色
+(set-mouse-color "gold1")
+
+
+;;启用时间显示设置，在minibuffer上面的那个杠上
+(display-time-mode 1)
+
+;;时间使用24小时制
+(setq display-time-24hr-format t)
+
+;;时间显示包括日期和具体时间
+(setq display-time-day-and-date t)
+
+
+;;设置默认读入文件编码
+(prefer-coding-system 'utf-8)
+
+;;设置写入文件编码
+(setq default-buffer-file-coding-system 'utf-8)
+
+
+
+
+
+
+
+
