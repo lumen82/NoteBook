@@ -1,7 +1,13 @@
 * 1.行首插入   
   C-x r t
 * 2.查找替换
-  M-x replace-string RET oldString RET newString
+** M-x replace-string RET oldString RET newString
+** M-x replace-regexp RET patternString RET newString 正则表达式匹配替换
+** M-%   (query-replace) 替换前会先询问
+   y：替换并定位到下一处
+   n：不替换并定位到下一处
+   q：直接退出
+   
 * 3.替换选中区域空格为Tab
   M-x tabify
   替换 Tab 为 空格
