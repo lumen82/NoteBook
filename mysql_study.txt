@@ -63,3 +63,6 @@ update don_users_collect set `type` = '1',
 	       是数据库控制功能。是用来设置或更改数据库用户或角色权限的语句，包括（grant,deny,revoke等）语句。在默认状态下，只有sysadmin,dbcreator,db_owner或db_securityadmin等人员才有权力执行DCL
 10.保留两位小数
 	四舍五入 round(column, 2)
+11.union 和 union all
+	 当使用 UNION 时，MySQL 会把结果集中重复的记录删掉，而使用 UNION ALL ，MySQL 会把所有的记录返回，且效率高于 UNION
+	 
