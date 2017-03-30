@@ -73,3 +73,35 @@ update don_users_collect set `type` = '1',
   修改definer 为 'username'@'%' 切换username账号，可以查看修改 存储过程了
   3.参考文档
   http://yunjiechao-163-com.iteye.com/blog/1300772
+* 13.mysql rownum update异常
+  mysql version 5.7.15-log
+    sql1:
+    update
+    (
+    	select ids,(@rowNum := @rowNum + 1) as rownum
+    	from don_activity a, ( select ( @rowNum := 0 ) ) r
+    	where a.`type` = ? order by a.sort asc
+    ) t1,
+    don_activity t2
+    set
+    t2.sort = t1.rownum
+    where
+    t2.`type` = ?
+    and t1.ids = t2.ids
+  手动更改 don_activity 表中的 sort 字段，执行sql1 ，sort 字段将恢复到手动更改之前的排序
+  sql2
+  update
+   ( select * from (
+   select ids,(@rowNum := @rowNum + 1) as rownum
+   from don_activity a, ( select ( @rowNum := 0 ) ) r
+   where a.`type` = ? order by a.sort asc
+   ) t
+   ) t1,
+   don_activity t2
+   set
+   t2.sort = t1.rownum
+   where
+   t2.`type` = ?
+   and t1.ids = t2.ids
+   同样操作，执行sql2 后能正常更新sort 字段。
+   而在 5.6.16-log中sql1 也能正常更新 sort 字段
