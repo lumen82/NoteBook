@@ -1,26 +1,26 @@
-* 1.删除表数据
+* 删除表数据
      truncate table 表名;
 	truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.  
      delete from 表名 where 表达式
 	delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效;如果有相应的trigger, 执行的时候将被触发.  
 
-* 2.MySql Host is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'
+* MySql Host is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'
      原因： 同一个ip在短时间内产生太多（超过mysql数据库max_connection_errors的最大值）中断的数据库连接而导致的阻塞
      解决办法：1、提高允许的max_connection_errors数量（治标不治本）
                2、使用mysqladmin flush-hosts 命令清理一下hosts文件（不知道mysqladmin在哪个目录下可以使用命令查找：whereis mysqladmin）；
      参考文档: http://www.cnblogs.com/susuyu/archive/2013/05/28/3104249.html
 
-* 3.mysql 查询 创建语句
+* mysql 查询 创建语句
      show create table tablename;
      show create view viewname;
      show create procedure proc_name;
 
-* 4. 检查是否开启计划任务
+* 检查是否开启计划任务
 SHOW VARIABLES LIKE 'event_scheduler';
 -- 开启计划任务
 SET GLOBAL event_scheduler = ON;
 
-* 5. 创建定时任务 每天02点执行
+* 创建定时任务 每天02点执行
 -- 若已存在则删除
 drop event if exists `call_report_yesterday`;
 
@@ -34,35 +34,35 @@ COMMENT '每天02点 统一执行报表统计存储过程，统计前一天数�
 DO
 CALL report_yesterday();
 
-* 6. case when 用法
+* case when 用法
       CASE input_expression
          WHEN when_expression THEN result_expression
          [ ...n ]
         ELSE else_result_expression
     END
 
-* 7. update 用法
+* update 用法
 -- 更新 don_users_collect 表 添加elder_id,type 字段数据
 update don_users_collect set `type` = '1',
     elder_id = (select elder_id from don_project where don_users_collect.project_id = don_project.id);
 
-* 8. 级联删除
+* 级联删除
 	delete cp from colum_projec cp
 	left join projec p on cp.project_id = p.id
 	where cp.column_id = '3954e30538464ec69f55350d38ea20a0' and p.status = '4';
 
-* 9. DML, DDL, DCL
+* DML, DDL, DCL
 	DML（data manipulation language）：
 	       它们是SELECT、UPDATE、INSERT、DELETE，就象它的名字一样，这4条命令是用来对数据库里的数据进行操作的语言
 	DDL（data definition language）：
 	       DDL比DML要多，主要的命令有CREATE、ALTER、DROP等，DDL主要是用在定义或改变表（TABLE）的结构，数据类型，表之间的链接和约束等初始化工作上，他们大多在建立表时使用
 	DCL（Data Control Language）：
 	       是数据库控制功能。是用来设置或更改数据库用户或角色权限的语句，包括（grant,deny,revoke等）语句。在默认状态下，只有sysadmin,dbcreator,db_owner或db_securityadmin等人员才有权力执行DCL
-* 10.保留两位小数
+* 保留两位小数
 	四舍五入 round(column, 2)
-* 11.union 和 union all
+* union 和 union all
 	 当使用 UNION 时，MySQL 会把结果集中重复的记录删掉，而使用 UNION ALL ，MySQL 会把所有的记录返回，且效率高于 UNION
-* 12.mysql 无法查看存储过程
+* mysql 无法查看存储过程
   SQL 错误 [S1000]: User does not have access to metadata required to determine stored procedure parameter types. If rights can not be granted, configure connection with "noAccessToProcedureBodies=true" to have driver generate parameters that represent INOUT strings irregardless of actual parameter types.
   java.sql.SQLException: User does not have access to metadata required to determine stored procedure parameter types. If rights can not be granted, configure connection with "noAccessToProcedureBodies=true" to have driver generate parameters that represent INOUT strings irregardless of actual parameter types.
 
@@ -73,7 +73,7 @@ update don_users_collect set `type` = '1',
   修改definer 为 'username'@'%' 切换username账号，可以查看修改 存储过程了
   3.参考文档
   http://yunjiechao-163-com.iteye.com/blog/1300772
-* 13.mysql rownum update异常
+* mysql rownum update异常
   mysql version 5.7.15-log
     sql1:
     update
@@ -105,3 +105,5 @@ update don_users_collect set `type` = '1',
    and t1.ids = t2.ids
    同样操作，执行sql2 后能正常更新sort 字段。
    而在 5.6.16-log中sql1 也能正常更新 sort 字段
+* MYSQL explain详解
+  参考地址：http://blog.csdn.net/zhuxineli/article/details/14455029
