@@ -107,3 +107,5 @@ update don_users_collect set `type` = '1',
    而在 5.6.16-log中sql1 也能正常更新 sort 字段
 * MYSQL explain详解
   参考地址：http://blog.csdn.net/zhuxineli/article/details/14455029
+* mysqldump 用法  待补充 2017/04/01 10:47:54
+
