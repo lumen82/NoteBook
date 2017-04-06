@@ -14,7 +14,7 @@
      show create table tablename;
      show create view viewname;
      show create procedure proc_name;
-
+     show create event event_name;
 * 检查是否开启计划任务
 SHOW VARIABLES LIKE 'event_scheduler';
 -- 开启计划任务
@@ -108,4 +108,29 @@ update don_users_collect set `type` = '1',
 * MYSQL explain详解
   参考地址：http://blog.csdn.net/zhuxineli/article/details/14455029
 * mysqldump 用法  待补充 2017/04/01 10:47:54
-
+* mysql 事件（event） 待补充 2017/04/06 14:57:43
+  参看网址：http://blog.csdn.net/jesseyoung/article/details/35257527
+** 简介
+** 优缺点
+** 创建
+** 查看
+** 修改
+*** 语法
+    ALTER
+    [DEFINER = { user | CURRENT_USER }]
+    EVENT event_name
+    [ON SCHEDULE schedule]
+    [ON COMPLETION [NOT] PRESERVE]
+    [RENAME TO new_event_name]
+    [ENABLE | DISABLE | DISABLE ON SLAVE]
+    [COMMENT 'comment']
+    [DO event_body]
+*** 例子
+    修改为不活动
+    alter event event_name disable;
+    修改为活动
+    alter event event_name enable;
+** 删除
+   drop event [if exists] event_name;
+** 事务
+   参考网址：http://blog.csdn.net/llmlx/article/details/7662497
