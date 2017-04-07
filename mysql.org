@@ -113,6 +113,8 @@ update don_users_collect set `type` = '1',
 ** 简介
 ** 优缺点
 ** 创建
+*** 语法
+    
 ** 查看
 ** 修改
 *** 语法
@@ -134,3 +136,9 @@ update don_users_collect set `type` = '1',
    drop event [if exists] event_name;
 ** 事务
    参考网址：http://blog.csdn.net/llmlx/article/details/7662497
+** 状态
+   ENABLED 激活态，符合条件将执行
+   DISABLED 禁用态，不会执行
+   SLAVESIDE_DISABLED 从库上不执行该EVENT，该状态应用在主库还是从库？若只有一个库，并且库是该状态事件会执行吗？
+** 导库时，不更新开始时间事件会开始执行吗？
+   不会，没回导库必须重新创建事件
