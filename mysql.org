@@ -142,3 +142,6 @@ update don_users_collect set `type` = '1',
    SLAVESIDE_DISABLED 从库上不执行该EVENT，该状态应用在主库还是从库？若只有一个库，并且库是该状态事件会执行吗？
 ** 导库时，不更新开始时间事件会开始执行吗？
    不会，没回导库必须重新创建事件
+* mysql workbench safe update mode
+  Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.
+  Solution: SET SQL_SAFE_UPDATES = 0;
