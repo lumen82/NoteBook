@@ -17,3 +17,12 @@
 	     git diff temp
 	     比较两个分支的不同
 
+* 删除本地文件并提交到远程仓库
+  1. git rm fileName
+     删除快照和硬盘中的文件
+     
+  2. git commit -a -m 'remark info'
+     -m 提交注释
+     -a 自动将在提交前已记录、修改的文件放入缓存区
+
+  3. git push
