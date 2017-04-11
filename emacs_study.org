@@ -1,24 +1,28 @@
-* 1.行首插入   
+* 行首插入   
   C-x r t
-* 2.查找替换
-** M-x replace-string RET oldString RET newString
-** M-x replace-regexp RET patternString RET newString 正则表达式匹配替换
-** M-%   (query-replace) 替换前会先询问
-   y：替换并定位到下一处
-   n：不替换并定位到下一处
-   q：直接退出
-   
-* 3.替换选中区域空格为Tab
+* 查找替换
+  1. M-x replace-string RET oldString RET newString 
+     
+     
+  2. M-x replace-regexp RET patternString RET newString 正则表达式匹配替换 
+     
+     
+  3. M-%   (query-replace) 替换前会先询问
+     y：替换并定位到下一处
+     n：不替换并定位到下一处
+     q：直接退出
+     
+* 替换选中区域空格为Tab
   M-x tabify
   替换 Tab 为 空格
   M-x untabify
-* 4.撤消
+* 撤消
   C-x u 向后撤消
   C-g C-x u 向前撤消
-* 5.换行符
+* 换行符
   只要需要输入换行符的地方，都用C-q C-j来输入，不管是要替换的，还是被替换的>    字符串。
-* 6. org 模式 打开折叠 C-u C-u TAB
-* 7.删除空白行
+*  org 模式 打开折叠 C-u C-u TAB
+* 删除空白行
   M-x flush-lines  RET  ^$
 * 关闭window 和 buffer
   1. 关闭当前窗口 C-x 0
