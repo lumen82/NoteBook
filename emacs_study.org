@@ -21,9 +21,9 @@
 * 7.删除空白行
   M-x flush-lines  RET  ^$
 * 关闭window 和 buffer
-  1.关闭当前窗口 C-x 0
-  2.关闭其他窗口 C-x 1
-  3.关闭缓冲区 C-x k  buffer_name
-  4.关闭当前窗口和缓冲区 C-x 4 0
+  1. 关闭当前窗口 C-x 0
+  2. 关闭其他窗口 C-x 1
+  3. 关闭缓冲区 C-x k  buffer_name
+  4. 关闭当前窗口和缓冲区 C-x 4 0
 * 切换mode
   M-x mode_name
