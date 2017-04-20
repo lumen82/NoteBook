@@ -45,3 +45,5 @@
   2. title 2
   3. title 3
   4. M - RET 好用 ^_^
+* 调整window大小
+   C-x }
