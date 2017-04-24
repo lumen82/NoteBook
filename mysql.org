@@ -145,3 +145,5 @@ update don_users_collect set `type` = '1',
 * mysql workbench safe update mode
   Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.
   Solution: SET SQL_SAFE_UPDATES = 0;
+* 单表备份
+  create table table_name_bak as select * from table_name;
