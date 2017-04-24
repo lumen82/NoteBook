@@ -147,3 +147,11 @@ update don_users_collect set `type` = '1',
   Solution: SET SQL_SAFE_UPDATES = 0;
 * 单表备份
   create table table_name_bak as select * from table_name;
+* what's duration time and fetch time ?
+  1. Fetch time - measures how long transferring fetched results take, which has nothing to do with query execution. I would not consider it as sql query debugging/optimization option since fetch time depends on network connection, which itself does not have anything to do with query optimization. If fetch time is bottleneck then more likely there's some networking problem. 
+     Note: fetch time may vary on each query execution.
+  2. Duration time - is the time that query needs to be executed. You should try to minimize it when optimizing performance of sql query.
+ 
+
+  
+
