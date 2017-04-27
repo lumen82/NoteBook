@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>mysql</title>
+<!-- 2017-04-27 四 22:26 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="lumen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">mysql</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 删除表数据</a></li>
+<li><a href="#sec-2">2. MySql Host is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'</a></li>
+<li><a href="#sec-3">3. mysql 查询 创建语句</a></li>
+<li><a href="#sec-4">4. 检查是否开启计划任务</a></li>
+<li><a href="#sec-5">5. 创建定时任务 每天02点执行</a></li>
+<li><a href="#sec-6">6. case when 用法</a></li>
+<li><a href="#sec-7">7. update 用法</a></li>
+<li><a href="#sec-8">8. 级联删除</a></li>
+<li><a href="#sec-9">9. DML, DDL, DCL</a></li>
+<li><a href="#sec-10">10. 保留两位小数</a></li>
+<li><a href="#sec-11">11. union 和 union all</a></li>
+<li><a href="#sec-12">12. mysql 无法查看存储过程</a></li>
+<li><a href="#sec-13">13. mysql rownum update异常</a></li>
+<li><a href="#sec-14">14. MYSQL explain详解</a></li>
+<li><a href="#sec-15">15. mysqldump 用法  待补充 2017/04/01 10:47:54</a></li>
+<li><a href="#sec-16">16. mysql 事件（event） 待补充 2017/04/06 14:57:43</a>
+<ul>
+<li><a href="#sec-16-1">16.1. 简介</a></li>
+<li><a href="#sec-16-2">16.2. 优缺点</a></li>
+<li><a href="#sec-16-3">16.3. 创建</a>
+<ul>
+<li><a href="#sec-16-3-1">16.3.1. 语法</a></li>
+</ul>
+</li>
+<li><a href="#sec-16-4">16.4. 查看</a></li>
+<li><a href="#sec-16-5">16.5. 修改</a>
+<ul>
+<li><a href="#sec-16-5-1">16.5.1. 语法</a></li>
+<li><a href="#sec-16-5-2">16.5.2. 例子</a></li>
+</ul>
+</li>
+<li><a href="#sec-16-6">16.6. 删除</a></li>
+<li><a href="#sec-16-7">16.7. 事务</a></li>
+<li><a href="#sec-16-8">16.8. 状态</a></li>
+<li><a href="#sec-16-9">16.9. 导库时，不更新开始时间事件会开始执行吗？</a></li>
+</ul>
+</li>
+<li><a href="#sec-17">17. mysql workbench safe update mode</a></li>
+<li><a href="#sec-18">18. 单表备份</a></li>
+<li><a href="#sec-19">19. what's duration time and fetch time ?</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 删除表数据</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+truncate table 表名;
+   truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.  
+delete from 表名 where 表达式
+   delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效;如果有相应的trigger, 执行的时候将被触发.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> MySql Host is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+原因： 同一个ip在短时间内产生太多（超过mysql数据库max<sub>connection</sub><sub>errors的最大值）中断的数据库连接而导致的阻塞</sub>
+解决办法：1、提高允许的max<sub>connection</sub><sub>errors数量（治标不治本）</sub>
+          2、使用mysqladmin flush-hosts 命令清理一下hosts文件（不知道mysqladmin在哪个目录下可以使用命令查找：whereis mysqladmin）；
+参考文档: <a href="http://www.cnblogs.com/susuyu/archive/2013/05/28/3104249.html">http://www.cnblogs.com/susuyu/archive/2013/05/28/3104249.html</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> mysql 查询 创建语句</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+show create table tablename;
+show create view viewname;
+show create procedure proc<sub>name</sub>;
+show create event event<sub>name</sub>;
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 检查是否开启计划任务</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+SHOW VARIABLES LIKE 'event<sub>scheduler'</sub>;
+&#x2013; 开启计划任务
+SET GLOBAL event<sub>scheduler</sub> = ON;
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 创建定时任务 每天02点执行</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+&#x2013; 若已存在则删除
+drop event if exists `call<sub>report</sub><sub>yesterday`</sub>;
+</p>
+
+<p>
+&#x2013; 创建
+CREATE EVENT if not exists `call<sub>report</sub><sub>yesterday`</sub>
+ON SCHEDULE EVERY 1 DAY
+STARTS date<sub>add</sub>(curdate(), interval 26 hour) &#x2013; 第二天02点开始
+ON COMPLETION NOT PRESERVE
+ENABLE
+COMMENT '每天02点 统一执行报表统计存储过程，统计前一天数据'
+DO
+CALL report<sub>yesterday</sub>();
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> case when 用法</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+CASE input<sub>expression</sub>
+   WHEN when<sub>expression</sub> THEN result<sub>expression</sub>
+   [ &#x2026;n ]
+  ELSE else<sub>result</sub><sub>expression</sub>
+    END
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> update 用法</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+&#x2013; 更新 don<sub>users</sub><sub>collect</sub> 表 添加elder<sub>id</sub>,type 字段数据
+update don<sub>users</sub><sub>collect</sub> set `type` = '1',
+    elder<sub>id</sub> = (select elder<sub>id</sub> from don<sub>project</sub> where don<sub>users</sub><sub>collect</sub>.project<sub>id</sub> = don<sub>project</sub>.id);
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> 级联删除</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+delete cp from colum<sub>projec</sub> cp
+left join projec p on cp.project<sub>id</sub> = p.id
+where cp.column<sub>id</sub> = '3954e30538464ec69f55350d38ea20a0' and p.status = '4';
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> DML, DDL, DCL</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+DML（data manipulation language）：
+       它们是SELECT、UPDATE、INSERT、DELETE，就象它的名字一样，这4条命令是用来对数据库里的数据进行操作的语言
+DDL（data definition language）：
+       DDL比DML要多，主要的命令有CREATE、ALTER、DROP等，DDL主要是用在定义或改变表（TABLE）的结构，数据类型，表之间的链接和约束等初始化工作上，他们大多在建立表时使用
+DCL（Data Control Language）：
+       是数据库控制功能。是用来设置或更改数据库用户或角色权限的语句，包括（grant,deny,revoke等）语句。在默认状态下，只有sysadmin,dbcreator,db<sub>owner或db</sub><sub>securityadmin等人员才有权力执行DCL</sub>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> 保留两位小数</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+四舍五入 round(column, 2)
+</p>
+</div>
+</div>
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> union 和 union all</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+当使用 UNION 时，MySQL 会把结果集中重复的记录删掉，而使用 UNION ALL ，MySQL 会把所有的记录返回，且效率高于 UNION
+</p>
+</div>
+</div>
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> mysql 无法查看存储过程</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+SQL 错误 [S1000]: User does not have access to metadata required to determine stored procedure parameter types. If rights can not be granted, configure connection with "noAccessToProcedureBodies=true" to have driver generate parameters that represent INOUT strings irregardless of actual parameter types.
+java.sql.SQLException: User does not have access to metadata required to determine stored procedure parameter types. If rights can not be granted, configure connection with "noAccessToProcedureBodies=true" to have driver generate parameters that represent INOUT strings irregardless of actual parameter types.
+</p>
+
+<p>
+1.show grants for username 查看用户权限
+grant all privileges on on 'database'.* to 'username'@'%' with grant option
+猜测应该有权限
+2.通过root账户查看该存储过程，发现该存储过程的 definer 为  'root'@'%'
+修改definer 为 'username'@'%' 切换username账号，可以查看修改 存储过程了
+3.参考文档
+<a href="http://yunjiechao-163-com.iteye.com/blog/1300772">http://yunjiechao-163-com.iteye.com/blog/1300772</a>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> mysql rownum update异常</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+mysql version 5.7.15-log
+  sql1:
+  update
+  (
+          select ids,(@rowNum := @rowNum + 1) as rownum
+          from don<sub>activity</sub> a, ( select ( @rowNum := 0 ) ) r
+          where a.`type` = ? order by a.sort asc
+  ) t1,
+  don<sub>activity</sub> t2
+  set
+  t2.sort = t1.rownum
+  where
+  t2.`type` = ?
+  and t1.ids = t2.ids
+手动更改 don<sub>activity</sub> 表中的 sort 字段，执行sql1 ，sort 字段将恢复到手动更改之前的排序
+sql2
+update
+ ( select * from (
+ select ids,(@rowNum := @rowNum + 1) as rownum
+ from don<sub>activity</sub> a, ( select ( @rowNum := 0 ) ) r
+ where a.`type` = ? order by a.sort asc
+ ) t
+ ) t1,
+ don<sub>activity</sub> t2
+ set
+ t2.sort = t1.rownum
+ where
+ t2.`type` = ?
+ and t1.ids = t2.ids
+ 同样操作，执行sql2 后能正常更新sort 字段。
+ 而在 5.6.16-log中sql1 也能正常更新 sort 字段
+</p>
+</div>
+</div>
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> MYSQL explain详解</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+参考地址：<a href="http://blog.csdn.net/zhuxineli/article/details/14455029">http://blog.csdn.net/zhuxineli/article/details/14455029</a>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> mysqldump 用法  待补充 2017/04/01 10:47:54</h2>
+</div>
+<div id="outline-container-sec-16" class="outline-2">
+<h2 id="sec-16"><span class="section-number-2">16</span> mysql 事件（event） 待补充 2017/04/06 14:57:43</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+参看网址：<a href="http://blog.csdn.net/jesseyoung/article/details/35257527">http://blog.csdn.net/jesseyoung/article/details/35257527</a>
+</p>
+</div>
+<div id="outline-container-sec-16-1" class="outline-3">
+<h3 id="sec-16-1"><span class="section-number-3">16.1</span> 简介</h3>
+</div>
+<div id="outline-container-sec-16-2" class="outline-3">
+<h3 id="sec-16-2"><span class="section-number-3">16.2</span> 优缺点</h3>
+</div>
+<div id="outline-container-sec-16-3" class="outline-3">
+<h3 id="sec-16-3"><span class="section-number-3">16.3</span> 创建</h3>
+<div class="outline-text-3" id="text-16-3">
+</div><div id="outline-container-sec-16-3-1" class="outline-4">
+<h4 id="sec-16-3-1"><span class="section-number-4">16.3.1</span> 语法</h4>
+</div>
+</div>
+
+<div id="outline-container-sec-16-4" class="outline-3">
+<h3 id="sec-16-4"><span class="section-number-3">16.4</span> 查看</h3>
+</div>
+<div id="outline-container-sec-16-5" class="outline-3">
+<h3 id="sec-16-5"><span class="section-number-3">16.5</span> 修改</h3>
+<div class="outline-text-3" id="text-16-5">
+</div><div id="outline-container-sec-16-5-1" class="outline-4">
+<h4 id="sec-16-5-1"><span class="section-number-4">16.5.1</span> 语法</h4>
+<div class="outline-text-4" id="text-16-5-1">
+<p>
+ALTER
+[DEFINER = { user | CURRENT<sub>USER</sub> }]
+EVENT event<sub>name</sub>
+[ON SCHEDULE schedule]
+[ON COMPLETION [NOT] PRESERVE]
+[RENAME TO new<sub>event</sub><sub>name]</sub>
+[ENABLE | DISABLE | DISABLE ON SLAVE]
+[COMMENT 'comment']
+[DO event<sub>body]</sub>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-16-5-2" class="outline-4">
+<h4 id="sec-16-5-2"><span class="section-number-4">16.5.2</span> 例子</h4>
+<div class="outline-text-4" id="text-16-5-2">
+<p>
+修改为不活动
+alter event event<sub>name</sub> disable;
+修改为活动
+alter event event<sub>name</sub> enable;
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-16-6" class="outline-3">
+<h3 id="sec-16-6"><span class="section-number-3">16.6</span> 删除</h3>
+<div class="outline-text-3" id="text-16-6">
+<p>
+drop event [if exists] event<sub>name</sub>;
+</p>
+</div>
+</div>
+<div id="outline-container-sec-16-7" class="outline-3">
+<h3 id="sec-16-7"><span class="section-number-3">16.7</span> 事务</h3>
+<div class="outline-text-3" id="text-16-7">
+<p>
+参考网址：<a href="http://blog.csdn.net/llmlx/article/details/7662497">http://blog.csdn.net/llmlx/article/details/7662497</a>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-16-8" class="outline-3">
+<h3 id="sec-16-8"><span class="section-number-3">16.8</span> 状态</h3>
+<div class="outline-text-3" id="text-16-8">
+<p>
+ENABLED 激活态，符合条件将执行
+DISABLED 禁用态，不会执行
+SLAVESIDE<sub>DISABLED</sub> 从库上不执行该EVENT，该状态应用在主库还是从库？若只有一个库，并且库是该状态事件会执行吗？
+</p>
+</div>
+</div>
+<div id="outline-container-sec-16-9" class="outline-3">
+<h3 id="sec-16-9"><span class="section-number-3">16.9</span> 导库时，不更新开始时间事件会开始执行吗？</h3>
+<div class="outline-text-3" id="text-16-9">
+<p>
+不会，没回导库必须重新创建事件
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-17" class="outline-2">
+<h2 id="sec-17"><span class="section-number-2">17</span> mysql workbench safe update mode</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, toggle the option in Preferences -&gt; SQL Editor and reconnect.
+Solution: SET SQL<sub>SAFE</sub><sub>UPDATES</sub> = 0;
+</p>
+</div>
+</div>
+<div id="outline-container-sec-18" class="outline-2">
+<h2 id="sec-18"><span class="section-number-2">18</span> 单表备份</h2>
+<div class="outline-text-2" id="text-18">
+<p>
+create table table<sub>name</sub><sub>bak</sub> as select * from table<sub>name</sub>;
+</p>
+</div>
+</div>
+<div id="outline-container-sec-19" class="outline-2">
+<h2 id="sec-19"><span class="section-number-2">19</span> what's duration time and fetch time ?</h2>
+<div class="outline-text-2" id="text-19">
+<ol class="org-ol">
+<li>Fetch time - measures how long transferring fetched results take, which has nothing to do with query execution. I would not consider it as sql query debugging/optimization option since fetch time depends on network connection, which itself does not have anything to do with query optimization. If fetch time is bottleneck then more likely there's some networking problem. 
+Note: fetch time may vary on each query execution.
+</li>
+<li>Duration time - is the time that query needs to be executed. You should try to minimize it when optimizing performance of sql query.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: lumen</p>
+<p class="date">Created: 2017-04-27 四 22:26</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
