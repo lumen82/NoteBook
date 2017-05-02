@@ -26,3 +26,7 @@
      -a 自动将在提交前已记录、修改的文件放入缓存区
 
   3. git push
+* clone and checkout
+  clone is for fetching repositories you don't have
+  checkout  is for switching between branches in a repository you already have
+  the answer is coming from: http://stackoverflow.com/questions/7298598/what-is-the-difference-between-git-clone-and-checkout
