@@ -27,6 +27,6 @@
 
   3. git push
 * clone and checkout
-  clone is for fetching repositories you don't have
-  checkout  is for switching between branches in a repository you already have
-  the answer is coming from: http://stackoverflow.com/questions/7298598/what-is-the-difference-between-git-clone-and-checkout
+ 1.  clone is for fetching repositories you don't have
+ 2.  checkout  is for switching between branches in a repository you already have
+ 3.  the answer is coming from: http://stackoverflow.com/questions/7298598/what-is-the-difference-between-git-clone-and-checkout
