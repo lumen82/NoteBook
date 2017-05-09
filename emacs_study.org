@@ -4,6 +4,7 @@
   1. M-x replace-string RET oldString RET newString 
     
   2. M-x replace-regexp RET patternString RET newString 正则表达式匹配替换 
+     eg: M-x replace-regexp \(\w*_\w*\) RET newString\1
 
   3. M-%   (query-replace) 替换前会先询问
    +  y：替换并定位到下一处
