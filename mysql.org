@@ -155,3 +155,6 @@ update don_users_collect set `type` = '1',
 
   
 
+* update multiple rows
+  update table_name a join table_name b on a.b_id = b.id
+  set a.col1 = b.col1, a.col2 = b.col2;
