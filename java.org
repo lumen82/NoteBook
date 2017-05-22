@@ -1,14 +1,14 @@
 * JVM 
-	Java Virtual Machine 实现了java语言最重要的特征：平台无关性
-	JVM屏蔽了与具体平台相关的信息，使Java语言编译程序只需要生成在JVM上运行的目标字节码（.class）,就可以在多种平台上不加修改地运行。Java 虚拟机在执行字节码时，把字节码解释成具体平台上的机器指令执行。因此实现java平台无关性。
-	JVM 是 编译后的 Java 程序（.class文件）和硬件系统之间的接口 
-	JVM = 类加载器 classloader + 执行引擎 execution engine + 运行时数据区域 runtime data area
+  1. Java Virtual Machine 实现了java语言最重要的特征：平台无关性
+  2. JVM屏蔽了与具体平台相关的信息，使Java语言编译程序只需要生成在JVM上运行的目标字节码（.class）,就可以在多种平台上不加修改地运行。Java 虚拟机在执行字节码时，把字节码解释成具体平台上的机器指令执行。因此实现java平台无关性。
+  3. JVM 是 编译后的 Java 程序（.class文件）和硬件系统之间的接口
+  4. JVM = 类加载器 classloader + 执行引擎 execution engine + 运行时数据区域 runtime data area
 * JVM Memory Structure
-	1）pc 寄存器
-	2）JVM 栈
-	3）堆（Heap）
-	4）方法区（Method Area）
-	5）运行时常量池（Runtime Constant Pool）
-	6）本地方法栈（Native Method Stacks）
+  1）pc 寄存器
+  2）JVM 栈
+  3）堆（Heap）
+  4）方法区（Method Area）
+  5）运行时常量池（Runtime Constant Pool）
+  6）本地方法栈（Native Method Stacks）
 * java.lang.UnsupportedClassVersionError: Unsupported major.minor version
   原因： jar包编译版本高于本地jre版本
