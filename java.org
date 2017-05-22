@@ -10,5 +10,6 @@
   4. 方法区（Method Area）
   5. 运行时常量池（Runtime Constant Pool）
   6. 本地方法栈（Native Method Stacks）
-* java.lang.UnsupportedClassVersionError: Unsupported major.minor version
-  原因： jar包编译版本高于本地jre版本
+* ERROR INFO
+** java.lang.UnsupportedClassVersionError: Unsupported major.minor version
+   原因： jar包编译版本高于本地jre版本
