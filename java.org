@@ -4,11 +4,11 @@
   3. JVM 是 编译后的 Java 程序（.class文件）和硬件系统之间的接口
   4. JVM = 类加载器 classloader + 执行引擎 execution engine + 运行时数据区域 runtime data area
 * JVM Memory Structure
-  1）pc 寄存器
-  2）JVM 栈
-  3）堆（Heap）
-  4）方法区（Method Area）
-  5）运行时常量池（Runtime Constant Pool）
-  6）本地方法栈（Native Method Stacks）
+  1. pc 寄存器
+  2. JVM 栈
+  3. 堆（Heap）
+  4. 方法区（Method Area）
+  5. 运行时常量池（Runtime Constant Pool）
+  6. 本地方法栈（Native Method Stacks）
 * java.lang.UnsupportedClassVersionError: Unsupported major.minor version
   原因： jar包编译版本高于本地jre版本
