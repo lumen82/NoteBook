@@ -48,3 +48,10 @@
   4. M - RET 好用 ^_^
 * 调整window大小
    C-x }
+* org-mode 插入源码
+  输入 <s  然后 TAB
+* 切换buffer
+  1. C-x b 输入buffer name
+  2. C-x C-b 打开新窗口显示所有buffer
+* 切换 window
+  C-x o
