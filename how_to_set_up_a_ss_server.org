@@ -1,0 +1,69 @@
+How to set up a ss server?
+just follow my step :
+* buy a vps, deploy a server
+  1. vps : vultr, linode...
+  2. the OS of the server : ubuntu is recommended
+  3. update packages(this is not necessary):
+     #+BEGIN_SRC
+# update source list
+sudo apt-get update
+
+# update packages
+sudo apt-get dist-upgrade
+     #+END_SRC
+* install git
+  1. git to be use to down the ss-bash code
+  2. if you have other way to do this, then git is not necessary
+  3. in my case, the ubuntu16.04 have installed git
+  4. if there is not, you may install it like this :
+     #+BEGIN_SRC 
+sudo apt-get update
+sudo apt-get install git
+     #+END_SRC
+* install python-pip
+  #+BEGIN_SRC 
+  apt-get install python-pip
+  #+END_SRC
+* install shadowsocks
+  1. do like this
+     #+BEGIN_SRC 
+     pip install git+https://github.com/shadowsocks/shadowsocks.git@master
+     #+END_SRC
+  2. you may see the error like this
+     #+BEGIN_SRC 
+Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-qza8si-build/
+You are using pip version 8.1.1, however version 9.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+     #+END_SRC
+  3. follow the error message
+     #+BEGIN_SRC 
+     pip install --upgrade pip
+     #+END_SRC
+  4. now you may get this
+     #+BEGIN_SRC 
+Could not import setuptools which is required to install from a source distribution.
+Please install setuptools.
+     #+END_SRC
+  5. do this to install setuptools
+     #+BEGIN_SRC 
+     pip install -U pip setuptools
+     #+END_SRC
+  6. then redo the step one in this step
+  7. now you get it!!!
+* install ss-bash
+  1. 可以用来配置ss，添加用户，修改密码，监控流量...
+  2. github: https://github.com/hellofwy/ss-bash
+  3. this is a project in github, all you need to do is to git it down.
+  4. the usage page is here
+     https://github.com/hellofwy/ss-bash/blob/master/sshelp
+  5. the first time you use it, may encounter situation like this : bc commond not found
+     if this happened :
+     #+BEGIN_SRC 
+      sudo apt-get install bc
+     #+END_SRC
+* start service when the server start
+  url  : https://my.oschina.net/oncereply/blog/467349
+  
+* open TCP BBR
+  BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况
+  url:https://github.com/iMeiji/shadowsocks_install/wiki/%E5%BC%80%E5%90%AFTCP-BBR%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95
