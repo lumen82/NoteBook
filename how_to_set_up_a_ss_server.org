@@ -12,8 +12,8 @@ sudo apt-get update
 sudo apt-get dist-upgrade
      #+END_SRC
 * install git
-  1. git to be use to down the ss-bash code
-  2. if you have other way to do this, then git is not necessary
+  1. git will be use to down the ss-bash code
+  2. if you have other way to do this, git is not necessary
   3. in my case, the ubuntu16.04 have installed git
   4. if there is not, you may install it like this :
      #+BEGIN_SRC 
