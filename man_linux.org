@@ -2,3 +2,5 @@
   https://my.oschina.net/oncereply/blog/467349
 * 设置时区
   sudo dpkg-reconfigure tzdata
+* 只进行安全更新
+  sudo unattended-upgrade
