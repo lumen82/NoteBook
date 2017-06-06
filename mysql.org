@@ -154,7 +154,31 @@ update don_users_collect set `type` = '1',
  
 
   
-
 * update multiple rows
   update table_name a join table_name b on a.b_id = b.id
   set a.col1 = b.col1, a.col2 = b.col2;
+* change column type from varchar to decimal
+  1. test
+     | varchar(20) | decimal(11,2) | result                                                                                                                                                                                                                           |
+     |-------------+---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+     | 27600       |      27600.00 | success                                                                                                                                                                                                                          |
+     | null        |          null | success                                                                                                                                                                                                                          |
+     | 27600元    |      27600.00 | 525 row(s) affected, 1 warning(s): 1292 Truncated incorrect DECIMAL value: '27600元' Records: 525  Duplicates: 0  Warnings: 1                                                                                                   |
+     | 27元600元 |         27.00 | 525 row(s) affected, 1 warning(s): 1292 Truncated incorrect DECIMAL value: '27元600元' Records: 525  Duplicates: 0  Warnings: 1                                                                                                |
+     | 27e600元   |  999999999.99 | 525 row(s) affected, 3 warning(s): 1292 Truncated incorrect DECIMAL value: '27' 1292 Truncated incorrect DECIMAL value: '27e600元' 1264 Out of range value for column 'amount' at row 1 Records: 525  Duplicates: 0  Warnings: 3 |
+     | 27a600      |         27.00 | 525 row(s) affected, 1 warning(s): 1292 Truncated incorrect DECIMAL value: '27a600' Records: 525  Duplicates: 0  Warnings: 1                                                                                                     |
+     | 27.600.123  |         27.60 | 525 row(s) affected, 1 warning(s): 1292 Truncated incorrect DECIMAL value: '27.600.123' Records: 525  Duplicates: 0  Warnings: 1                                                                                                 |
+     | 27.612      |         27.61 | 525 row(s) affected, 1 warning(s): 1265 Data truncated for column 'amount' at row 1 Records: 525  Duplicates: 0  Warnings: 1                                                                                                     |
+     | 27.616      |         27.62 | 525 row(s) affected, 1 warning(s): 1265 Data truncated for column 'amount' at row 1 Records: 525  Duplicates: 0  Warnings: 1                                                                                                     |
+     | 27.61.6     |         27.61 | 525 row(s) affected, 1 warning(s): 1292 Truncated incorrect DECIMAL value: '27.61.6' Records: 525  Duplicates: 0  Warnings: 1                                                                                                    |
+     
+  2. 结论
+     1. null 不变
+
+     2. 从左到右，截取正确数字格式的字符串转换为decimal
+
+     3. 小数位数超出部分做四舍五入进位
+ 
+
+
+     
