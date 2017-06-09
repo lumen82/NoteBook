@@ -63,7 +63,62 @@ Please install setuptools.
      #+END_SRC
 * start service when the server start
   url  : https://my.oschina.net/oncereply/blog/467349
-  
+  1. create script /etc/init.d/shadowsocks
+#+BEGIN_SRC 
+sudo vim /etc/init.d/shadowsocks
+#+END_SRC
+  2. add script content
+#+BEGIN_SRC 
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          shadowsocks
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the shadowsocks daemon
+# Description:       starts shadowsocks using start-stop-daemon
+### END INIT INFO
+
+start(){
+        /yourPATH/ss-bash/ssadmin.sh start
+}
+
+stop(){
+        /yourPATH/ss-bash/ssadmin.sh stop
+}
+
+case "$1" in
+start)
+        start
+        ;;
+stop)
+        stop
+        ;;
+reload)
+        stop
+        start
+        ;;
+*)
+        echo "Usage: $0 {start|reload|stop}"
+        exit 1
+        ;;
+esac
+
+#+END_SRC
+  3. change mode make the script runnable
+#+BEGIN_SRC 
+sudo chmod +x /etc/init.d/shadowsocks
+#+END_SRC
+  4. make the script executive when the machine start
+#+BEGIN_SRC 
+sudo update-rc.d shadowsocks defaults
+#+END_SRC
+  5. It's done! And you can start it manually
+#+BEGIN_SRC 
+sudo service shadowsocks {start|reload|stop}
+#+END_SRC
+
 * open TCP BBR
   BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况
   url:https://github.com/iMeiji/shadowsocks_install/wiki/%E5%BC%80%E5%90%AFTCP-BBR%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95
