@@ -64,11 +64,11 @@ Please install setuptools.
 * start service when the server start
   url  : https://my.oschina.net/oncereply/blog/467349
   1. create script /etc/init.d/shadowsocks
-#+BEGIN_SRC 
-sudo vim /etc/init.d/shadowsocks
-#+END_SRC
+     #+BEGIN_SRC 
+sudo vim /etc/init.d/shadowsocks     
+     #+END_SRC
   2. add script content
-#+BEGIN_SRC 
+     #+BEGIN_SRC 
 #!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          shadowsocks
@@ -104,20 +104,20 @@ reload)
         exit 1
         ;;
 esac
-
-#+END_SRC
-  3. change mode make the script runnable
-#+BEGIN_SRC 
-sudo chmod +x /etc/init.d/shadowsocks
-#+END_SRC
+     
+     #+END_SRC
+  3. change mode make the script executable
+     #+BEGIN_SRC 
+     sudo chmod +x /etc/init.d/shadowsocks
+     #+END_SRC
   4. make the script executive when the machine start
-#+BEGIN_SRC 
-sudo update-rc.d shadowsocks defaults
-#+END_SRC
+     #+BEGIN_SRC 
+     sudo update-rc.d shadowsocks defaults
+     #+END_SRC
   5. It's done! And you can start it manually
-#+BEGIN_SRC 
-sudo service shadowsocks {start|reload|stop}
-#+END_SRC
+     #+BEGIN_SRC 
+     sudo service shadowsocks {start|reload|stop}
+     #+END_SRC
 
 * open TCP BBR
   BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况
