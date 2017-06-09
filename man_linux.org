@@ -4,3 +4,9 @@
   sudo dpkg-reconfigure tzdata
 * 只进行安全更新
   sudo unattended-upgrade
+* Ubuntu下开启Mysql远程访问的方法
+  1. 参考网址：http://www.jianshu.com/p/9c175e9293e2
+  2. 环境
+     - OS : Ubuntu 16.04.2 LTS (GNU/Linux 4.10.9-041009-generic x86_64)
+     - mysql : Ver 14.14 Distrib 5.7.18, for Linux (x86_64) using  EditLine wrapper
+  3. 实际操作过程中配置文件所在位置为 /etc/mysql/mysql.conf.d/mysqld.cnf
