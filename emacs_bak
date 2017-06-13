@@ -1,70 +1,69 @@
-;;å…³é—­æ¬¢è¿ç•Œé¢  
+
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (json-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Î¢ÈíÑÅºÚ" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
+
+
+;;¹Ø±Õ»¶Ó­½çÃæ  
 (setq inhibit-startup-message t)
 
 (global-set-key [f11] 'my-fullscreen)
 
-;å…¨å±
-(defun my-fullscreen ()
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(2 "_NET_WM_STATE_FULLSCREEN" 0))
-)
 
-;è¯¥å‡½æ•°ç”¨äºæœ€å¤§åŒ–,çŠ¶æ€å€¼ä¸º1è¯´æ˜æœ€å¤§åŒ–åä¸ä¼šè¢«è¿˜åŸ
-;å› ä¸ºè¿™é‡Œæœ‰ä¸¤æ¬¡æœ€å¤§åŒ– (åˆ†åˆ«æ˜¯æ°´å¹³å’Œå‚ç›´)
-(defun my-maximized ()
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(1 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
-(my-maximized) 
-
-;å¯åŠ¨æ—¶æœ€å¤§åŒ–
-(my-maximized)
-
-;;æ˜¾ç¤ºè¡Œåˆ—å·,å®ƒæ˜¾ç¤ºåœ¨minibufferä¸Šé¢é‚£ä¸ªæ ä¸Š
+;;ÏÔÊ¾ĞĞÁĞºÅ,ËüÏÔÊ¾ÔÚminibufferÉÏÃæÄÇ¸ö¸ÜÉÏ
 (setq column-number-mode t)
 (setq line-number-mode t)
 
-;;å–æ¶ˆæ»šåŠ¨æ 
-(set-scroll-bar-mode nil)
+;;È¡Ïû¹ö¶¯À¸
+(set-scroll-bar-mode 0)
 
-;;å–æ¶ˆå·¥å…·æ 
-(tool-bar-mode nil)
+;;È¡Ïû¹¤¾ßÀ¸
+(tool-bar-mode 0)
 
-;; ç¦ç”¨èœå•æ ï¼ŒF10 å¼€å¯å…³é—­èœå•
-(menu-bar-mode nil)
+;; ½ûÓÃ²Ëµ¥À¸£¬F10 ¿ªÆô¹Ø±Õ²Ëµ¥
+(menu-bar-mode 0)
 
 
-;;è®¾ç½®å­—ä½“é¢œè‰²ä¸ºé»‘è‰²ï¼Œé»˜è®¤ä¸ºé»‘è‰²
+;;ÉèÖÃ×ÖÌåÑÕÉ«ÎªºÚÉ«£¬Ä¬ÈÏÎªºÚÉ«
 (set-foreground-color "grey")
-;;è®¾ç½®èƒŒæ™¯ä¸ºé»‘è‰²ï¼Œé»˜è®¤ä¸ºç™½è‰²ï¼Œä½ ä¹Ÿå¯ä»¥è‡ªç”±è®¾ç½®å…¶å®ƒé¢œè‰²
+;;ÉèÖÃ±³¾°ÎªºÚÉ«£¬Ä¬ÈÏÎª°×É«£¬ÄãÒ²¿ÉÒÔ×ÔÓÉÉèÖÃÆäËüÑÕÉ«
 (set-background-color "black")
-;;è®¾ç½®å…‰æ ‡çš„é¢œè‰²ä¸ºé‡‘é»„ï¼Œé»˜è®¤ä¸ºé»‘è‰²
+;;ÉèÖÃ¹â±êµÄÑÕÉ«Îª½ğ»Æ£¬Ä¬ÈÏÎªºÚÉ«
 (set-cursor-color "gold1")
-;;è®¾ç½®é¼ æ ‡çš„é¢œè‰²
+;;ÉèÖÃÊó±êµÄÑÕÉ«
 (set-mouse-color "gold1")
 
 
-;;å¯ç”¨æ—¶é—´æ˜¾ç¤ºè®¾ç½®ï¼Œåœ¨minibufferä¸Šé¢çš„é‚£ä¸ªæ ä¸Š
+;;ÆôÓÃÊ±¼äÏÔÊ¾ÉèÖÃ£¬ÔÚminibufferÉÏÃæµÄÄÇ¸ö¸ÜÉÏ
 (display-time-mode 1)
 
-;;æ—¶é—´ä½¿ç”¨24å°æ—¶åˆ¶
+;;Ê±¼äÊ¹ÓÃ24Ğ¡Ê±ÖÆ
 (setq display-time-24hr-format t)
 
-;;æ—¶é—´æ˜¾ç¤ºåŒ…æ‹¬æ—¥æœŸå’Œå…·ä½“æ—¶é—´
+;;Ê±¼äÏÔÊ¾°üÀ¨ÈÕÆÚºÍ¾ßÌåÊ±¼ä
 (setq display-time-day-and-date t)
 
 
-;;è®¾ç½®é»˜è®¤è¯»å…¥æ–‡ä»¶ç¼–ç 
+;;ÉèÖÃÄ¬ÈÏ¶ÁÈëÎÄ¼ş±àÂë
 (prefer-coding-system 'utf-8)
 
-;;è®¾ç½®å†™å…¥æ–‡ä»¶ç¼–ç 
+;;ÉèÖÃĞ´ÈëÎÄ¼ş±àÂë
 (setq default-buffer-file-coding-system 'utf-8)
 
 
@@ -74,3 +73,46 @@
 
 
 
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+
+
+(defun now ()
+  "Insert string for the current time formatted like '2:34 PM'."
+  (interactive "*")                 ; permit invocation in minibuffer
+  ;;(insert (format-time-string "%-I:%M %p"))
+  (insert (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))
+)
+
+
+(defun today ()
+  "Insert string for today's date nicely formatted in American style,
+e.g. Sunday, September 17, 2000."
+  (interactive)                 ; permit invocation in minibuffer
+  (insert (format-time-string "%A, %B %e, %Y"))
+)
+
+;;ÉèÖÃÄ¬ÈÏÎÄ¼ş¼Ğ
+(setq default-directory "E:/lumen/" )
+(put 'set-goal-column 'disabled nil)
+
+(eval-after-load "org"
+  '(require 'ox-md nil t))
+
+;; org mode todo
+;; record a note along with the timestamp
+(setq org-log-done 'time)
+
+(setq org-todo-keywords
+'((sequence "TODO" "DOING" "DONE" )))
+
+;; python
+(defvar myPackages   
+  '(better-defaults     
+    elpy ;; add the elpy package     
+    material-theme))
+
+
+;; org mode export to html _
+(setq org-export-with-sub-superscripts (quote {}))
