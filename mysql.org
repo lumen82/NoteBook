@@ -182,3 +182,30 @@ update don_users_collect set `type` = '1',
 
 
      
+* workbench 导出sql 文件 导入时报错
+  1. 原因
+     导出时自动生成如下语句
+     #+BEGIN_SRC 
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+SET @@GLOBAL.GTID_PURGED='6be07c38-0ec2-11e7-af4e-00163e03b936:1-1004797';
+
+
+
+SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;     
+     #+END_SRC
+     这些语句的执行需要有  SUPER privilege 权限
+
+  2. 关于 sql_log_bin
+     参考地址：https://dev.mysql.com/doc/refman/5.5/en/set-sql-log-bin.html
+
+  3. 解决办法
+     - 导出文件中直接删除语句
+
+     - 修改 advanced options
+       set-gtid-purged... 由AUTO或ON 修改为 OFF
