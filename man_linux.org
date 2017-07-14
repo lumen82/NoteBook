@@ -26,3 +26,10 @@
      | 多个参数 | 去除对应column（eg. -12  suppress column 1 column 2) |
 
      
+* ubuntu maven 设置ss全局代理
+  1. 搭建 ss 客户端 确保能正常代理
+  2. 安装 polipo 配置全局代理
+     - url：http://www.yangxg.com/blog/3973747910.html
+  3. 配置 maven 的setting 文件 添加代理
+     - url： http://www.cnblogs.com/memory4young/p/maven-http-proxy-setting.html
+     - Note： 端口配置为 polipo 端口 默认为8123
