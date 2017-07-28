@@ -56,3 +56,6 @@
   2. C-x C-b 打开新窗口显示所有buffer
 * 切换 window
   C-x o
+* json mode
+  1. 格式化json
+     C-c C-t
