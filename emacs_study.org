@@ -58,4 +58,4 @@
   C-x o
 * json mode
   1. 格式化json
-     C-c C-t
+     C-c C-f
