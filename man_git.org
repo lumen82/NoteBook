@@ -30,3 +30,5 @@
  1.  clone is for fetching repositories you don't have
  2.  checkout  is for switching between branches in a repository you already have
  3.  the answer is coming from: http://stackoverflow.com/questions/7298598/what-is-the-difference-between-git-clone-and-checkout
+* merge and rebase
+  https://github.com/geeeeeeeeek/git-recipes/wiki/5.1-%E4%BB%A3%E7%A0%81%E5%90%88%E5%B9%B6%EF%BC%9AMerge%E3%80%81Rebase-%E7%9A%84%E9%80%89%E6%8B%A9
