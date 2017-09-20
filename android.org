@@ -14,10 +14,11 @@
 	http://www.jianshu.com/p/7a532de0b111
 	  
 	  
-     
 ** EditText 自动获取焦点
    1. EditText 父布局 添加如下代码
 #+BEGIN_SRC 
 android:focusable="true"  
 android:focusableInTouchMode="true"
 #+END_SRC
+** notification 图标设置
+   https://juejin.im/entry/573a76b5f38c84006732816f
