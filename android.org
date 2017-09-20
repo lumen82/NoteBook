@@ -1,5 +1,5 @@
 * android 开发中遇到的哪些坑
-**** aar 文件的生成与引入
+** aar 文件的生成与引入
      1. 情况说明
 	+ 通过两种方式引入aar 包
 	  - 本地添加
@@ -15,3 +15,9 @@
 	  
 	  
      
+** EditText 自动获取焦点
+   1. EditText 父布局 添加如下代码
+#+BEGIN_SRC 
+android:focusable="true"  
+android:focusableInTouchMode="true"
+#+END_SRC
