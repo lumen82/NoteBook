@@ -1,0 +1,24 @@
+* android 开发中遇到的哪些坑
+** aar 文件的生成与引入
+     1. 情况说明
+	+ 通过两种方式引入aar 包
+	  - 本地添加
+	    复制文件到 lib库 并添加     compile(name: 'nicevideoplayer-debug', ext: 'aar')
+	  - maven 库添加
+	    直接添加   compile(name: 'NiceVieoPlayer-v2.1', ext: 'aar')
+	+ 方法1 编译没有问题运行时报错 方法2能正常使用
+     2. 原因
+	本地导入 缺少依赖的库
+	通过 maven 下载的包或自动加载依赖包
+     3. 参考地址：
+	http://www.jianshu.com/p/7a532de0b111
+	  
+	  
+** EditText 自动获取焦点
+   1. EditText 父布局 添加如下代码
+#+BEGIN_SRC 
+android:focusable="true"  
+android:focusableInTouchMode="true"
+#+END_SRC
+** notification 图标设置
+   https://juejin.im/entry/573a76b5f38c84006732816f
