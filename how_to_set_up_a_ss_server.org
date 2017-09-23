@@ -29,6 +29,11 @@ sudo apt-get install git
      #+BEGIN_SRC 
      pip install git+https://github.com/shadowsocks/shadowsocks.git@master
      #+END_SRC
+     or like this
+     change to the root dir of the project and run the commond below
+     #+BEGIN_SRC 
+     python setup.py install 
+     #+END_SRC
   2. you may see the error like this
      #+BEGIN_SRC 
 Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-qza8si-build/
