@@ -24,7 +24,8 @@
    1. Tip : Make Quality a Requirements Issue
    2. 就目前来看都是用户（领导）在上线前提出新的需求从而拖延上线时间
    3. not get so much from this paragraph.
-** 你的知识资产(星期一, 十月 09, 2017)
+** 你的知识资产
+   create time : 2017/10/10 10:04:15
 *** 你的知识资产
 *** 经营你的资产
     1. 定期投资
@@ -48,3 +49,4 @@
 *** 批判的思考
     1. Tip：Critically Analyze What You Read and Hear
        批判的分析你读到和听到的
+    
