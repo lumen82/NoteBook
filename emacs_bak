@@ -105,7 +105,11 @@ e.g. Sunday, September 17, 2000."
 (setq org-log-done 'time)
 
 (setq org-todo-keywords
-'((sequence "TODO" "DOING" "DONE" )))
+      '((sequence "TODO" "DOING" "DONE" )))
+
+(setq org-todo-keyword-faces '(("TODO" . "red")
+                               ("DOING" . "yellow")
+                               ("DONE" . "green")))
 
 ;; python
 (defvar myPackages   
