@@ -25,7 +25,6 @@
      |       -3 | suppress column 3                                    |
      | 多个参数 | 去除对应column（eg. -12  suppress column 1 column 2) |
 
-     
 * ubuntu maven 设置ss全局代理
   1. 搭建 ss 客户端 确保能正常代理
   2. 安装 polipo 配置全局代理
@@ -33,3 +32,56 @@
   3. 配置 maven 的setting 文件 添加代理
      - url： http://www.cnblogs.com/memory4young/p/maven-http-proxy-setting.html
      - Note： 端口配置为 polipo 端口 默认为8123
+* samba文件服务器设置“最简单篇”
+原文地址：https://sites.google.com/site/devlibrary/linux/samba-wen-jian-fu-wu-qi-she-zhi-zui-jian-dan-pian-
+** 安装 samba
+#+BEGIN_SRC 
+#apt-get install samba 
+#apt-get install smbfs 
+#+END_SRC
+** 添加 linux 用户
+#+BEGIN_SRC 
+#useradd user1　　　　　//添加用户名user1 
+#passwd user1 //给用户名user1添加密码 
+#mkdir /home/user1 //建立user1的home目录，如果不用这个用户名来登陆linux，此步骤不是必需 
+#chown -R user1:user1 /home/user1　　　//给user1的home目录设置好权限
+#+END_SRC
+** 给samba服务器添加用户 
+   说明：登陆samba的用户必须已经是linux中的用户
+   #+BEGIN_SRC 
+   #smbpasswd -a user1 //添加并给user1设置samba密码 
+   #+END_SRC
+** smb.conf设置 
+   #+BEGIN_SRC 
+#cd /etc/samb //进入设置目录 
+#cp smb.conf　smb.conf.bak //做好备份，直接将系统默认配置文件改名 
+#vim smb.conf //建立和配置smb.conf文件 
+
+[global] 
+workgroup=x1 //X1为你局域网中的工作组名 
+server string=x2 //x2为你linux主机描述性文字，比如：samba server。 
+security=user //samba的安全等级，user代表需要输入用户名和密码，改成share则不需要输入用户名和密码 
+
+[x3] //方框号中的x3这个名字可以随便取，只是在win的网上邻居中显示的共享文件夹名 
+path=/home/x4 //x4为你要共享的文件夹名，在共享前还要建立这个文件夹，并设好权限以便访问，下面会说明。 
+valid users=user1 //这个x4共享目录只允许user1这个用户进入 
+public=no　　　　 //no表示除了user1这个用户，其它用户在进入samba服务器后看不见x4这个目录，如果为yes，虽然能看见x4这个目录，但除了user1这个用户能进入这个目录，其它人进不了。 
+writable=yes　　 //允许user1在x4目录中进行读和写操作，反之no 
+
+//存盘退出 
+#testparm //检查一下语法错误，比如拼错 
+   #+END_SRC
+** 建立共享目录 
+   #+BEGIN_SRC 
+#mkdir /home/x4 
+#chown -R user1:user1 /home/x4 
+   #+END_SRC
+   因为是root建立的目录，其它用户只有读的权限，所还得把权限改一下。当然也可以简单的用#chmod 777 /home/x4。
+   还有个问题就是共享里目录的文件如果有些能访问有些不能访问，那肯定也是权限的问题,进入/home/x4,直接#chmod 777 *来解决。 
+** 重启samba服务 
+   #+BEGIN_SRC 
+   #/etc/init.d/samba restart 
+   #+END_SRC
+** NOTES
+   1. 添加两次用户：一次添加系统用户#useradd user1；再一次是添加samba用户#smbpasswd -a user1;
+   2. 设置两次权限：一次是在smb.conf中设置共享文件夹的权限：再一次是在系统中设置共享文件夹的权限#chmod 777 文件夹名。
