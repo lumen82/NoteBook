@@ -74,4 +74,12 @@
 | Ctrl + F | 向下翻页                                      |
 | Ctrl + B | 向上翻页                                      |
 | v        | 进入可视模式 (选中区域，命令可作用也选中区域) |
+| SPC f f  | 打开文件                                      |
+| SPC f t  | 打开文件所在目录                              |
+| SPC b d  | 关闭当前buffer                                    |
    
+** add mode
+   #+BEGIN_SRC 
+   ;;添加web-mode,多个用空格隔开
+   dotspacemacs-additional-packages '(web-mode)
+   #+END_SRC
