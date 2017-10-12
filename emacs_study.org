@@ -79,6 +79,7 @@
 | SPC b d  | 关闭当前buffer                                    |
    
 ** add mode
+   修改 ~/.spacemacs 文件
    #+BEGIN_SRC 
    ;;添加web-mode,多个用空格隔开
    dotspacemacs-additional-packages '(web-mode)
