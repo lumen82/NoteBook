@@ -15,9 +15,9 @@
      #+END_SRC
   4. 自己编辑文件内容
      #+BEGIN_SRC 
-     /etc/gitconfig
-     ~/.gitconfig
-     .git/config
+     /etc/gitconfig  # 全部用户有效
+     ~/.gitconfig   # 当前用户有效
+     .git/config   # 当前项目有效
      #+END_SRC
 * git 初始化
   1. 本地初始化
@@ -30,31 +30,60 @@
      git clone resp_url
      #+END_SRC
 *  提交代码
-	-- 添加到本地库
-	git add fileName
-	git commit -m 'commit content'
-	-- 提交到远程库
-	git push
-*  将 fork 出来的库与资源库同步
-	http://jinlong.github.io/2015/10/12/syncing-a-fork/
-
-* 比较本地库与远程库
-	step 1：
-	     git pull origin master:temp
-	     从远程origin仓库的master分支下载到本地并新建一个分支temp
-	step 2：
-	     git diff temp
-	     比较两个分支的不同
+  1. 添加到本地库
+     #+BEGIN_SRC 
+     git add fileName
+     git commit -m 'commit content'
+     #+END_SRC
+  2. 提交到远程库
+     #+BEGIN_SRC 
+     #origin：远程库名       master：分支名
+     git push origin master 
+     #+END_SRC
+*  将 fork 出来的库与资源库同步	
+  1. 添加上游仓库
+     #+BEGIN_SRC 
+     git remote add upstream resp_url
+     #+END_SRC
+  2. 从上游仓库获取到分支，及相关的提交信息，它们将被保存在本地的 upstream/master 分支
+     #+BEGIN_SRC 
+     git fetch upstream
+     #+END_SRC
+  3. 切换到本地分支
+     #+BEGIN_SRC 
+     git checkout master
+     #+END_SRC
+  4. 把 upstream/master 分支合并到本地的 master 分支
+     #+BEGIN_SRC 
+     git merge upstream/master
+     #+END_SRC
+  
+* 比较本地库与远程库	     
+  1. 从远程origin仓库的master分支下载到本地并新建一个分支temp
+	   #+BEGIN_SRC 
+     git pull origin master:temp
+	   #+END_SRC
+  2. 比较两个分支的不同
+     #+BEGIN_SRC 
+     git diff temp
+     #+END_SRC
 
 * 删除本地文件并提交到远程仓库
-  1. git rm fileName
-     删除快照和硬盘中的文件
-     
-  2. git commit -a -m 'remark info'
-     -m 提交注释
-     -a 自动将在提交前已记录、修改的文件放入缓存区
+  1. 删除快照和硬盘中的文件
+     #+BEGIN_SRC 
+      git rm fileName
+     #+END_SRC
+  2. 更改提交到本地
+     #+BEGIN_SRC 
+     //-m 提交注释
+     //-a 自动将在提交前已记录、修改的文件放入缓存区
+     git commit -a -m 'remark info'
+     #+END_SRC
+  3. 提交到远程库
+     #+BEGIN_SRC 
+     git push origin master
+     #+END_SRC
 
-  3. git push
 * clone and checkout
  1.  clone is for fetching repositories you don't have
  2.  checkout  is for switching between branches in a repository you already have
