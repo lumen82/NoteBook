@@ -67,3 +67,16 @@ create time : 2017/10/10 22:09:24
     1. It's Both What You Say and the Way You Say It
        你说什么和你怎么说同样重要
 
+* Part 2 注重实效的途径
+** 重复的危害
+   create time : 2017/10/12 22:40:27
+   1. Tips
+      DRY - Don't Repeat Yourself 不要重复自己
+      Make It Easy to Reuse 让复用变得容易
+   2. 本章作者给出了重复发生的四种情况，并给出了对应的应对方法
+      - 强加的重复
+      - 无意的重复
+      - 无耐性的重复
+      - 开发者间的重复
+   3. 思考自己项目中遇到的重复
+   4. ^_^ 有些错必须自己犯过之后才能记住
