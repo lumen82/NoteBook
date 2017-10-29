@@ -85,5 +85,11 @@ writable=yes　　 //允许user1在x4目录中进行读和写操作，反之no
 ** NOTES
    1. 添加两次用户：一次添加系统用户#useradd user1；再一次是添加samba用户#smbpasswd -a user1;
    2. 设置两次权限：一次是在smb.conf中设置共享文件夹的权限：再一次是在系统中设置共享文件夹的权限#chmod 777 文件夹名。
+<<<<<<< HEAD
+* vim 使用  
+** 正则表达式查找替换
+   url：http://tanqisen.github.io/blog/2013/01/13/vim-search-replace-regex/
+** 正则表达式惰性匹配(?)
+   http://www.jb51.net/article/101258.htm
 * python安装mysqldb模块
 http://blog.csdn.net/boycycyzero/article/details/42787797
