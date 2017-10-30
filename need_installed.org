@@ -1,0 +1,13 @@
+说明：更换电脑重新配置环境
+** mysql workbench
+** intelliJ
+** emacs
+** vim
+** git bash
+** xshell
+** chrome
+** JDK
+** 7zip
+** svn
+** tar gnu
+** maven
