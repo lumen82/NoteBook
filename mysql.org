@@ -153,7 +153,6 @@ update don_users_collect set `type` = '1',
   2. Duration time - is the time that query needs to be executed. You should try to minimize it when optimizing performance of sql query.
  
 
-  
 * update multiple rows
   update table_name a join table_name b on a.b_id = b.id
   set a.col1 = b.col1, a.col2 = b.col2;
@@ -181,7 +180,6 @@ update don_users_collect set `type` = '1',
  
 
 
-     
 * workbench 导出sql 文件 导入时报错
   1. 原因
      导出时自动生成如下语句
@@ -209,3 +207,50 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 
      - 修改 advanced options
        set-gtid-purged... 由AUTO或ON 修改为 OFF
+* mysql 游标使用例子
+  通过游标遍历表，为每一条数据生成一定时间范围内的随机时间作为创建时间
+#+BEGIN_SRC 
+CREATE DEFINER=`root`@`%` PROCEDURE `test`()
+BEGIN
+	# 遍历数据结束标志
+   declare done int default false;
+   # 定义参数表示执行结果
+   declare my_error int default 0;
+   # 定义游标
+   declare mycursor cursor for
+	 select id from nursinghome_bak_2017_10_31;
+   # 将结束标志绑定到游标
+	declare continue handler for not found set done = true;
+   # 事务执行失败返回1
+   declare continue handler for sqlexception set my_error = 1;
+	declare temp_id int default 0;
+   # 最小时间
+   declare timeStart bigint default unix_timestamp('2015-01-01');
+   # 最大时间
+   declare timeEnd bigint default unix_timestamp('2016-01-01');
+   # 开始事务
+	start transaction;
+   # 打开游标
+   open mycursor;
+   fetch mycursor into temp_id;
+   repeat
+		if not done then
+			update nursinghome_bak_2017_10_31 set create_time = from_unixtime(timeStart + floor(rand() * (timeEnd - timeStart))) where id = temp_id;
+		end if;
+      fetch mycursor into temp_id;
+	until done end repeat;
+   # 关闭游标
+   close mycursor;
+   # 事务判断
+   if my_error then
+      # 事务回滚
+		rollback;
+	else 
+      # 事务提交
+	   commit;
+	end if;
+    # 返回事务执行结果
+    select my_error as result;
+    
+END
+#+END_SRC
