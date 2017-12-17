@@ -91,5 +91,9 @@ writable=yes　　 //允许user1在x4目录中进行读和写操作，反之no
    url：http://tanqisen.github.io/blog/2013/01/13/vim-search-replace-regex/
 ** 正则表达式惰性匹配(?)
    http://www.jb51.net/article/101258.htm
+** 设置文件编码
+   #+BEGIN_SRC 
+   :set fenc=utf-8
+   #+END_SRC
 * python安装mysqldb模块
 http://blog.csdn.net/boycycyzero/article/details/42787797
