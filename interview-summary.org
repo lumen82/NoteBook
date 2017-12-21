@@ -1,0 +1,16 @@
+Interview Summary
+* 星期四, 十二月 21, 2017 国美金控
+** HashMap 线程安全性
+   https://yemengying.com/2016/05/07/threadsafe-hashmap/
+** Spring 设计模式
+** Spring 事务级别
+** mysql 索引类型
+** mysql 引擎类型及特性
+** hebernite 乐观锁悲观锁
+** web 容器原理
+** 数据库查询优化
+** mybatis dao 和 mapper 关联
+** 线程各种状态
+** AOP 应用
+** 线程相关
+** 框架相关
