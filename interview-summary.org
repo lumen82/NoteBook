@@ -2,15 +2,31 @@ Interview Summary
 * 星期四, 十二月 21, 2017 国美金控
 ** HashMap 线程安全性
    https://yemengying.com/2016/05/07/threadsafe-hashmap/
+** List 线程安全性
+   - http://blog.csdn.net/jiaochunyu1992/article/details/51177373
 ** Spring 设计模式
-** Spring 事务级别
+   https://muyinchen.github.io/2017/07/20/Spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F(%E4%B8%80)/
+** Spring 事务隔离级别
+   https://github.com/pzxwhc/MineKnowContainer/issues/31
 ** mysql 索引类型
+   http://database.51cto.com/art/200910/156685.htm
 ** mysql 引擎类型及特性
+   - https://github.com/jaywcjlove/mysql-tutorial/blob/master/chapter3/3.5.md
+   - https://zhuanlan.zhihu.com/p/29367933
 ** hebernite 乐观锁悲观锁
+   - http://blog.csdn.net/chenssy/article/details/7746340
 ** web 容器原理
+** springMVC 原理
+   - http://tracylihui.github.io/2015/07/27/spring/SpringMVC%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E4%BE%8B/
 ** 数据库查询优化
+   - https://tech.meituan.com/mysql-index.html
 ** mybatis dao 和 mapper 关联
+   - http://blog.csdn.net/luanlouis/article/details/40422941
 ** 线程各种状态
+   - https://my.oschina.net/mingdongcheng/blog/139263
 ** AOP 应用
+   - https://www.ibm.com/developerworks/cn/java/j-lo-springaopcglib/index.html
 ** 线程相关
 ** 框架相关
+** SpringMVC autowired 和 resource 区别
+   https://www.zhihu.com/question/39356740
