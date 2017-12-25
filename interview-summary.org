@@ -1,11 +1,31 @@
 Interview Summary
 * 星期四, 十二月 21, 2017 国美金控
 ** HashMap 线程安全性
-   https://yemengying.com/2016/05/07/threadsafe-hashmap/
+   - https://yemengying.com/2016/05/07/threadsafe-hashmap/
+   - 为什么不安全
+     1. hash相同元素同时put时会互相覆盖
+     2. 如果同时触发扩容可能使链表造成还链，从而导致get时死循环
+   - 线程安全Map
+     1. HashTable
+        1. sychronized put and get method, 效率低下
+     2. SynchronizedMap
+     3. ConcurrentHashMap
+        1. 允许并发读和线程安全的更新
+        2. 写操作时只锁住部分Map
 ** List 线程安全性
    - http://blog.csdn.net/jiaochunyu1992/article/details/51177373
+   - ArrayList 线程不安全
+     1. 同时add 可能相互覆盖
 ** Spring 设计模式
-   https://muyinchen.github.io/2017/07/20/Spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F(%E4%B8%80)/
+   - https://muyinchen.github.io/2017/07/20/Spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F(%E4%B8%80)/
+     1. 解释器设计模式
+     2. 建设者模式(BeanDefinitionBuilder)
+        1. 该模式用于简化复杂对象的构造
+        2. Builder 允许我们通过将值传递给父类的内部构建器对象来清楚的分解对象构造
+        3. 构建器后面隐藏了对象构造的复杂性，内部静态类接受链接方法的调用
+     3. 工厂方法
+        1. 定义一个用于创建对象的接口，让子类决定实例化哪个类，工厂方法使一个类的实例化延迟到其子类
+     5. 抽象工厂
 ** Spring 事务隔离级别
    https://github.com/pzxwhc/MineKnowContainer/issues/31
 ** mysql 索引类型
