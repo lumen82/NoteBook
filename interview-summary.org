@@ -25,14 +25,41 @@ Interview Summary
         3. 构建器后面隐藏了对象构造的复杂性，内部静态类接受链接方法的调用
      3. 工厂方法
         1. 定义一个用于创建对象的接口，让子类决定实例化哪个类，工厂方法使一个类的实例化延迟到其子类
-     5. 抽象工厂
+     4. 抽象工厂
+     5. 代理模式
 ** Spring 事务隔离级别
-   https://github.com/pzxwhc/MineKnowContainer/issues/31
+   - https://github.com/pzxwhc/MineKnowContainer/issues/31
+   - 事务隔离级别
+     1. ISOLATION_DEFAULT 使用后端数据库默认级别
+     2. ISOLATION_READ_UNCOMMITED 允许读取尚未提交的修改，可能导致脏读，幻读，不可重复读
+     3. ISOLATION_READ_COMMITED 允许从已提交的并发事务读取，可以避免脏读，但幻读和不可重复读仍可能发生
+     4. ISOLATION_REPEATABLE_READ 对相同字段的多次读取结果是一致的，除非数据被当前事务本身改变，可防止脏读和不可重复读，但幻读仍可能发生
+     5. ISOLATION_SERIALIZABLE 完全服从ACID的隔离级别，确保不发生脏读、不可重复读和幻读。最慢，通常通过完全锁定当前事务所涉及的表来实现
+   - 传播行为
+   - 脏读、幻读、不可重复读
 ** mysql 索引类型
-   http://database.51cto.com/art/200910/156685.htm
+   - http://database.51cto.com/art/200910/156685.htm
+   - https://zhuanlan.zhihu.com/p/29367933
+   - 索引类型
+     1. 主键索引
+        1. 单表查询中和唯一索引差别不大，但关联查询中检索速度高于唯一索引
+     2. 普通索引
+     3. 唯一索引
+     4. 全文索引
+     5. 组合索引
+        1. 最左原则：where 条件中查询顺序和索引列顺序一致，否则索引不生效
 ** mysql 引擎类型及特性
    - https://github.com/jaywcjlove/mysql-tutorial/blob/master/chapter3/3.5.md
-   - https://zhuanlan.zhihu.com/p/29367933
+   - 引擎类型
+     1. InnoDB
+        1. 健壮的事务型存储引擎，引入行级锁定和外键约束
+        2. 5.7开始成为默认引擎
+        3. 适合处理多并发的更新请求
+     2. MyISAM
+        1. 无法处理事务
+        2. 筛选大量数据迅速
+        3. 并发插入特性允许同时选择和插入数据
+        4. 表级锁
 ** hebernite 乐观锁悲观锁
    - http://blog.csdn.net/chenssy/article/details/7746340
 ** web 容器原理
