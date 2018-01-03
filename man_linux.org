@@ -95,5 +95,9 @@ writable=yes　　 //允许user1在x4目录中进行读和写操作，反之no
    #+BEGIN_SRC 
    :set fenc=utf-8
    #+END_SRC
+** 命令窗口 黏贴 寄存器
+   #+BEGIN_SRC 
+   Ctrl+r
+   #+END_SRC
 * python安装mysqldb模块
 http://blog.csdn.net/boycycyzero/article/details/42787797
