@@ -177,7 +177,6 @@ update don_users_collect set `type` = '1',
 
      3. 小数位数超出部分做四舍五入进位
  
-
 * workbench 导出sql 文件 导入时报错
   1. 原因
      导出时自动生成如下语句
@@ -306,3 +305,5 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
    select my_error as result;
    END
      #+END_SRC
+* collation
+  mysql的collation大致的意思就是字符序。首先字符本来是不分大小的，那么对字符的>, = , < 操作就需要有个字符序的规则。
