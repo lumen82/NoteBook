@@ -93,3 +93,10 @@
 * 回退文件到指定版本
   https://my.oschina.net/u/1186749/blog/668488
 * TODO 怎样删除提交记录但保持文件修改状态
+* 移除某文件夹的版本控制
+  #+BEGIN_SRC 
+  git rm -r -n --cached "bin/" //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。
+  git rm -r --cached  "bin/"      //最终执行命令. 
+  git commit -m" remove bin folder all file out of control"    //提交
+  git push origin master   //提交到远程服务器
+  #+END_SRC
