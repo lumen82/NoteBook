@@ -95,6 +95,8 @@ writable=yes　　 //允许user1在x4目录中进行读和写操作，反之no
    #+BEGIN_SRC 
    :set fenc=utf-8
    #+END_SRC
+** 复制黏贴 寄存器
+   可以用"{register}y来拷贝到{register}中， 用"{register}p来粘贴{register}中的内容。例如： "ayy可以拷贝当前行到寄存器a中，而"ap则可以粘贴寄存器a中的内容。
 ** 命令窗口 黏贴 寄存器
    #+BEGIN_SRC 
    Ctrl+r
