@@ -90,7 +90,10 @@ writable=yes　　 //允许user1在x4目录中进行读和写操作，反之no
 ** 正则表达式查找替换
    url：http://tanqisen.github.io/blog/2013/01/13/vim-search-replace-regex/
 ** 正则表达式惰性匹配(?)
-   http://www.jb51.net/article/101258.htm
+   - http://www.jb51.net/article/101258.htm
+   - 多行匹配(\_.)时使用*?做非贪婪匹配匹配失败，改为\{-}模式匹配成功
+     - 参考：http://blog.sina.com.cn/s/blog_3cf5c5ca0100wfmw.html
+   
 ** 设置文件编码
    #+BEGIN_SRC 
    :set fenc=utf-8
