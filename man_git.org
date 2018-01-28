@@ -100,3 +100,12 @@
   git commit -m" remove bin folder all file out of control"    //提交
   git push origin master   //提交到远程服务器
   #+END_SRC
+* 查看文件修改记录
+  1. 查看文件提交记录
+     #+BEGIN_SRC 
+     git log --pretty=oneline filename
+     #+END_SRC
+  2. 查看某次提交变动详情
+     #+BEGIN_SRC 
+     git show commitHash
+     #+END_SRC
