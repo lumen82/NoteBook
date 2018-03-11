@@ -22,7 +22,6 @@ echo $MEMUsage
 
 if [$MEMUsage -gt 400]
 then
-	{
-		`/home/lumen/github/ss-bash/ssadmin.sh restart`
-	}
+	exec /home/lumen/github/ss-bash/ssadmin.sh restart
+fi
 
