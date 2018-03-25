@@ -1,0 +1,8 @@
+* 算法学习
+** Steps to developing a usable algorithm.
+   - Model the problem
+   - Find an algorithm to solve it.
+   - Fast enough? Fits im memory?
+   - If not, figure out why.
+   - Find a way to address the problem.
+   - Iterate until satisfied.
