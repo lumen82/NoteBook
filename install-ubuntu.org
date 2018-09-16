@@ -1,0 +1,6 @@
+1. nvidia显卡 安装时卡死
+	引导页面 按 e
+将
+quite splash --- 
+改为
+quite splash nomodeset
