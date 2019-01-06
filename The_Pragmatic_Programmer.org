@@ -104,3 +104,12 @@ create time : 2017/10/10 22:09:24
    3. 项目与数据库的解耦
    4. tips
       - There Are No Final Decisions.
+** 曳光弹
+   1. 以前读的时候一直把它理解成了照明弹
+   2. 这里指的是发射出去会发光的子弹，能看到子弹的运行轨迹，并根据反馈调整射击参数
+   3. 开发中的应用
+      1. 搭建框架
+      2. 优先搭建主体流程
+      3. 后期再添加具体功能
+   4. tips
+      - Use Tracer Bullets to Find the Target.
