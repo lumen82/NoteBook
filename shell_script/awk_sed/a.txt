@@ -1,0 +1,4 @@
+action	operation
+新增	Insert
+删除	Del
+修改	Update
