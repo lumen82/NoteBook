@@ -1,0 +1,6 @@
+* 环境搭建
+* 启动脚本
+  - 
+    #+BEGIN_SRC 
+    sbin/start-dfs.sh
+    #+END_SRC
