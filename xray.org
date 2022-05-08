@@ -1,0 +1,29 @@
+* 问题
+	1. 搭建网址： https://v2xtls.org/xray%e6%95%99%e7%a8%8b/
+	2. 自动更新证书工具： acme.sh 使用方式 见github仓库
+	3. acme.sh 更新超时是 iptables 规则被vps供应商修改，具体表现为 curl或wget 测试结果No route to host 
+	4. iptables 使用
+		- 查看规则
+			sudo iptables -L -n --line-number
+		- 删除规则
+			sudo iptables -D INPUT line-number
+	5. acms.sh 使用用 root/.acme.sh 下的，使用 sudo su 进入
+		- 更新证书命令
+			acme.sh --renew -d example.com --force
+* 更新证书操作步骤
+    1. 切换root用户
+        sudo su
+    2. 停止 xray
+        systemctl stop xray
+    3. 停止 nginx
+        systemctl stop nginx
+        报错直接 kill pid
+        查看pid 方法 ps -ef
+    4. 更新证书命令
+        acme.sh --renew -d example.com --force
+    5. 启动 ngixn
+        systemctl start nginx
+    6. 启动 xray
+        systemctl start xray
+* xray 配置文件位置
+    /usr/local/etc/xray/
